@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="TOP_CENTER" spacing="0" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.composite.HelloController"
+      style="-fx-background-color: linear-gradient(#2b1a0e, #120a06);">
+
+    <!-- Вывеска -->
+    <VBox alignment="CENTER" spacing="6.0"
+          style="-fx-background-color: linear-gradient(#c0392b, #7b1e1e); -fx-padding: 16 24 14 24; -fx-border-color: #f7dc6f; -fx-border-width: 0 0 4 0;">
+        <Label text="LUCKY REELS"
+               style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #f7dc6f; -fx-effect: dropshadow(gaussian, #00000088, 8, 0, 0, 2);"/>
+        <Label text="три окна · одна удача"
+               style="-fx-font-size: 12px; -fx-text-fill: #fadbd8;"/>
+    </VBox>
+
+    <VBox alignment="CENTER" spacing="18.0">
+        <padding>
+            <Insets top="22.0" right="36.0" bottom="28.0" left="36.0"/>
+        </padding>
+
+        <!-- Табло -->
+        <HBox alignment="CENTER" maxWidth="420" spacing="0"
+              style="-fx-background-color: #0d0d0d; -fx-background-radius: 6; -fx-border-color: #7f8c8d; -fx-border-radius: 6; -fx-border-width: 2; -fx-padding: 10 18;">
+            <Label fx:id="balanceLabel"
+                   maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                   style="-fx-font-size: 18px; -fx-font-family: 'Consolas'; -fx-text-fill: #2ecc71; -fx-alignment: center;"/>
+        </HBox>
+
+        <!-- Корпус автомата -->
+        <VBox alignment="CENTER" spacing="18.0" maxWidth="460"
+              style="-fx-background-color: linear-gradient(#8b1e1e, #4a1010); -fx-background-radius: 18; -fx-border-color: #f7dc6f, #9a7b0a; -fx-border-width: 6, 2; -fx-border-radius: 18; -fx-padding: 22 22 20 22;">
+
+            <HBox alignment="CENTER" spacing="10.0">
+                <Region prefWidth="14" prefHeight="14" style="-fx-background-color: #f7dc6f; -fx-background-radius: 7;"/>
+                <Region prefWidth="14" prefHeight="14" style="-fx-background-color: #e74c3c; -fx-background-radius: 7;"/>
+                <Region prefWidth="14" prefHeight="14" style="-fx-background-color: #f7dc6f; -fx-background-radius: 7;"/>
+            </HBox>
+
+            <!-- Окна барабанов -->
+            <HBox alignment="CENTER" spacing="10.0"
+                  style="-fx-background-color: #1c1c1c; -fx-background-radius: 10; -fx-padding: 14; -fx-border-color: #111; -fx-border-width: 3; -fx-border-radius: 10;">
+                <Label fx:id="reel1" alignment="CENTER" prefWidth="118" prefHeight="140"
+                       style="-fx-background-color: linear-gradient(#fafafa, #d5d5d5); -fx-text-fill: #922b21; -fx-font-size: 48px; -fx-font-weight: bold; -fx-background-radius: 4; -fx-border-color: #b7950b; -fx-border-width: 2; -fx-alignment: center;"/>
+                <Label fx:id="reel2" alignment="CENTER" prefWidth="118" prefHeight="140"
+                       style="-fx-background-color: linear-gradient(#fafafa, #d5d5d5); -fx-text-fill: #922b21; -fx-font-size: 48px; -fx-font-weight: bold; -fx-background-radius: 4; -fx-border-color: #b7950b; -fx-border-width: 2; -fx-alignment: center;"/>
+                <Label fx:id="reel3" alignment="CENTER" prefWidth="118" prefHeight="140"
+                       style="-fx-background-color: linear-gradient(#fafafa, #d5d5d5); -fx-text-fill: #922b21; -fx-font-size: 48px; -fx-font-weight: bold; -fx-background-radius: 4; -fx-border-color: #b7950b; -fx-border-width: 2; -fx-alignment: center;"/>
+            </HBox>
+
+            <Button fx:id="spinButton" text="КРУТИТЬ"
+                    prefWidth="220" prefHeight="48" onAction="#onSpin"
+                    style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-background-color: #f7dc6f; -fx-text-fill: #4a1010; -fx-background-radius: 24; -fx-cursor: hand;"/>
+        </VBox>
+
+        <Button text="Пополнить баланс" onAction="#onPay" prefWidth="220" prefHeight="36"
+                style="-fx-font-size: 13px; -fx-background-color: #1e8449; -fx-text-fill: white; -fx-background-radius: 8;"/>
+    </VBox>
+</VBox>
